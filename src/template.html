@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loading</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
+  />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <style>
+      @keyframes show {
+          0% {
+              opacity: 0;
+          }
+          80% {
+              opacity: 0;
+          }
+          100% {
+              opacity: 1;
+          }
+      }
+      .msg {
+          width: 500px;
+          height: 200px;
+          max-width: 100%;
+          max-height: 100%;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          line-height: 1.4;
+      }
+      .delayed {
+          margin-top: 20px;
+          animation: show 10s ease;
+      }
+  </style>
+</head>
+<body>
+<div id="root">
+  <div class="msg">
+    <div class="delayed">
+      If the application doesn't load, please make sure you are using a modern browser such as
+      <a href="https://www.mozilla.org/en-US/firefox/new/">Mozilla Firefox</a> or
+      <a href="https://www.google.com/chrome/">Google Chrome</a>.
+    </div>
+  </div>
+</div>
+</body>
+</html>
