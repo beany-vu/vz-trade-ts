@@ -1,0 +1,90 @@
+{
+  "data": [
+    {
+      "value": "9",
+      "label": "AfCFTA"
+    },
+    {
+      "value": "55",
+      "label": " Non-AfCFTA"
+    },
+    {
+      "value": "g2",
+      "label": "Economic regions",
+      "children": [
+        {
+          "value": "g2-0",
+          "label": "LDC"
+        },
+        {
+          "value": "g2-1",
+          "label": "LLDC"
+        }
+      ]
+    },
+    {
+      "value": "g3",
+      "label": "Geographic regions",
+      "children": [
+        {
+          "value": "g3-0",
+          "label": "Central Africa"
+        },
+        {
+          "value": "g3-1",
+          "label": "Eastern Africa"
+        },
+        {
+          "value": "g3-2",
+          "label": "Northern Africa"
+        },
+        {
+          "value": "g3-3",
+          "label": "Southern Africa"
+        },
+        {
+          "value": "g3-4",
+          "label": "Western Africa"
+        }
+      ]
+    },
+    {
+      "value": "g4",
+      "label": "Geographic regions",
+      "children": [
+        {
+          "value": "g4-0",
+          "label": "SACU"
+        },
+        {
+          "value": "g4-1",
+          "label": "WAEMU"
+        },
+        {
+          "value": "g4-2",
+          "label": "CEMAC"
+        },
+        {
+          "value": "g4-3",
+          "label": "ECOWAS"
+        },
+        {
+          "value": "g4-4",
+          "label": "SADC"
+        },
+        {
+          "value": "g4-5",
+          "label": "COMESA"
+        },
+        {
+          "value": "g4-6",
+          "label": "ECCAS"
+        },
+        {
+          "value": "g4-7",
+          "label": "EAC"
+        }
+      ]
+    }
+  ]
+}

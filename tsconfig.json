@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+
+    "outDir": "./lib",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -20,8 +21,6 @@
     "noEmit": false,
     "jsx": "react"
   },
-  "include": [
-    "src",
-    "custom.d.ts"
-  ]
+  "include": ["src/**/*", "custom.d.ts", "src/mockData/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "dist", "lib"]
 }

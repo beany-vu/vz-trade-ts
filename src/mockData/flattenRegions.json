@@ -1,0 +1,304 @@
+{
+  "data": [
+    {
+      "value": "0",
+      "label": "Rest of the world"
+    },
+    {
+      "value": "1",
+      "label": "All Africa"
+    },
+    {
+      "value": "2",
+      "label": "Central Africa"
+    },
+    {
+      "value": "3",
+      "label": "Eastern Africa"
+    },
+    {
+      "value": "4",
+      "label": "Northern Africa"
+    },
+    {
+      "value": "5",
+      "label": "Southern Africa"
+    },
+    {
+      "value": "6",
+      "label": "Western Africa"
+    },
+    {
+      "value": "dz",
+      "label": "Algeria"
+    },
+    {
+      "value": "ao",
+      "label": "Angola"
+    },
+    {
+      "value": "bj",
+      "label": "Benin"
+    },
+    {
+      "value": "bw",
+      "label": "Botswana"
+    },
+    {
+      "value": "bf",
+      "label": "Burkina Faso"
+    },
+    {
+      "value": "bi",
+      "label": "Burundi"
+    },
+    {
+      "value": "cv",
+      "label": "Cabo Verde"
+    },
+    {
+      "value": "cm",
+      "label": "Cameroon"
+    },
+    {
+      "value": "cf",
+      "label": "Central African Republic"
+    },
+    {
+      "value": "td",
+      "label": "Chad"
+    },
+    {
+      "value": "km",
+      "label": "Comoros"
+    },
+    {
+      "value": "cg",
+      "label": "Congo"
+    },
+    {
+      "value": "ci",
+      "label": "Côte d'Ivoire"
+    },
+    {
+      "value": "dj",
+      "label": "Djibouti"
+    },
+    {
+      "value": "cd",
+      "label": "DR Congo"
+    },
+    {
+      "value": "eg",
+      "label": "Egypt"
+    },
+    {
+      "value": "gq",
+      "label": "Equatorial Guinea"
+    },
+    {
+      "value": "gq",
+      "label": "Equatorial Guinea"
+    },
+    {
+      "value": "gq",
+      "label": "Equatorial Guinea"
+    },
+    {
+      "value": "er",
+      "label": "Eritrea"
+    },
+    {
+      "value": "sz",
+      "label": "Eswatini"
+    },
+    {
+      "value": "et",
+      "label": "Ethiopia"
+    },
+    {
+      "value": "ga",
+      "label": "Gabon"
+    },
+    {
+      "value": "gm",
+      "label": "Gambia"
+    },
+    {
+      "value": "gh",
+      "label": "Ghana"
+    },
+    {
+      "value": "gn",
+      "label": "Guinea"
+    },
+    {
+      "value": "gw",
+      "label": "Guinea-Bissau"
+    },
+    {
+      "value": "ke",
+      "label": "Kenya"
+    },
+    {
+      "value": "ls",
+      "label": "Lesotho"
+    },
+    {
+      "value": "lr",
+      "label": "Liberia"
+    },
+    {
+      "value": "ly",
+      "label": "Libya"
+    },
+    {
+      "value": "mg",
+      "label": "Madagascar"
+    },
+    {
+      "value": "mw",
+      "label": "Malawi"
+    },
+    {
+      "value": "ml",
+      "label": "Mali"
+    },
+    {
+      "value": "mr",
+      "label": "Mauritania"
+    },
+    {
+      "value": "mu",
+      "label": "Mauritius"
+    },
+    {
+      "value": "ma",
+      "label": "Morocco"
+    },
+    {
+      "value": "mz",
+      "label": "Mozambique"
+    },
+    {
+      "value": "na",
+      "label": "Namibia"
+    },
+    {
+      "value": "ne",
+      "label": "Niger"
+    },
+    {
+      "value": "ng",
+      "label": "Nigeria"
+    },
+    {
+      "value": "rw",
+      "label": "Rwanda"
+    },
+    {
+      "value": "st",
+      "label": "Sao Tome & Principe"
+    },
+    {
+      "value": "sn",
+      "label": "Senegal"
+    },
+    {
+      "value": "sc",
+      "label": "Seychelles"
+    },
+    {
+      "value": "sl",
+      "label": "Sierra Leone"
+    },
+    {
+      "value": "so",
+      "label": "Somalia"
+    },
+    {
+      "value": "za",
+      "label": "South Africa"
+    },
+    {
+      "value": "ss",
+      "label": "South Sudan"
+    },
+    {
+      "value": "sd",
+      "label": "Sudan"
+    },
+    {
+      "value": "tz",
+      "label": "Tanzania"
+    },
+    {
+      "value": "tg",
+      "label": "Togo"
+    },
+    {
+      "value": "tn",
+      "label": "Tunisia"
+    },
+    {
+      "value": "ug",
+      "label": "Uganda"
+    },
+    {
+      "value": "zm",
+      "label": "Zambia"
+    },
+    {
+      "value": "zw",
+      "label": "Zimbabwe"
+    },
+    {
+      "value": "eh",
+      "label": "Western Sahara"
+    },
+    {
+      "value": "g0",
+      "label": "AfCFTA"
+    },
+    {
+      "value": "g1",
+      "label": " Non-AfCFTA"
+    },
+    {
+      "value": "g2",
+      "label": "Economic regions"
+    },
+    {
+      "value": "g2-0",
+      "label": "LDC"
+    },
+    {
+      "value": "g2-1",
+      "label": "LLDC"
+    },
+    {
+      "value": "g3",
+      "label": "Geographic regions"
+    },
+    {
+      "value": "g3-0",
+      "label": "Central Africa"
+    },
+    {
+      "value": "g3-1",
+      "label": "Eastern Africa"
+    },
+    {
+      "value": "g3-2",
+      "label": "Northern Africa"
+    },
+    {
+      "value": "g3-3",
+      "label": "Southern Africa"
+    },
+    {
+      "value": "g3-4",
+      "label": "Western Africa"
+    }
+  ]
+}

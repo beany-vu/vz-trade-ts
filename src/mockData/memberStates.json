@@ -1,0 +1,257 @@
+{
+  "data": [
+    {
+      "value": "ms-na",
+      "label": "Northern Africa",
+      "children": [
+        {
+          "value": "dz",
+          "label": "Algeria"
+        },
+        {
+          "value": "eg",
+          "label": "Egypt"
+        },
+        {
+          "value": "ly",
+          "label": "Libya"
+        },
+        {
+          "value": "ma",
+          "label": "Morocco"
+        },
+        {
+          "value": "eh",
+          "label": "Western Sahara"
+        },
+        {
+          "value": "sd",
+          "label": "Sudan"
+        },
+        {
+          "value": "tn",
+          "label": "Tunisia"
+        }
+      ]
+    },
+    {
+      "value": "ms-wa",
+      "label": "Western Africa",
+      "children": [
+        {
+          "value": "bj",
+          "label": "Benin"
+        },
+        {
+          "value": "bf",
+          "label": "Burkina Faso"
+        },
+        {
+          "value": "ci",
+          "label": "Côte d'Ivoire"
+        },
+        {
+          "value": "gm",
+          "label": "Gambia"
+        },
+        {
+          "value": "gh",
+          "label": "Ghana"
+        },
+        {
+          "value": "gn",
+          "label": "Guinea"
+        },
+        {
+          "value": "gw",
+          "label": "Guinea-Bissau"
+        },
+        {
+          "value": "lr",
+          "label": "Liberia"
+        },
+        {
+          "value": "ly",
+          "label": "Libya"
+        },
+        {
+          "value": "ml",
+          "label": "Mali"
+        },
+        {
+          "value": "mr",
+          "label": "Mauritania"
+        },
+        {
+          "value": "ne",
+          "label": "Niger"
+        },
+        {
+          "value": "ng",
+          "code": "52",
+          "label": "Nigereia"
+        },
+        {
+          "value": "sn",
+          "label": "Senegal"
+        },
+        {
+          "value": "sl",
+          "label": "Sierra Leone"
+        },
+        {
+          "value": "tg",
+          "label": "Togo"
+        }
+      ]
+    },
+    {
+      "value": "ms2",
+      "label": "Central Africa",
+      "children": [
+        {
+          "value": "ao",
+          "label": "Angola"
+        },
+        {
+          "value": "cm",
+          "label": "Cameroon"
+        },
+        {
+          "value": "cf",
+          "label": "Central African Republic"
+        },
+        {
+          "value": "td",
+          "label": "Chad"
+        },
+        {
+          "value": "cd",
+          "label": "DR Congo"
+        },
+        {
+          "value": "17",
+          "code": "cg",
+          "label": "Congo"
+        },
+        {
+          "value": "gq",
+          "label": "Equatorial Guinea"
+        },
+        {
+          "value": "ga",
+          "label": "Gabon"
+        },
+        {
+          "value": "st",
+          "label": "Sao Tome & Principe"
+        }
+      ]
+    },
+    {
+      "value": "ms3",
+      "label": "Eastern Africa",
+      "children": [
+        {
+          "value": "bi",
+          "label": "Burundi"
+        },
+        {
+          "value": "km",
+          "label": "Comoros"
+        },
+        {
+          "value": "dj",
+          "label": "Djibouti"
+        },
+        {
+          "value": "er",
+          "label": "Eritrea"
+        },
+        {
+          "value": "et",
+          "label": "Ethiopia"
+        },
+        {
+          "value": "37",
+          "code": "ke",
+          "label": "Kenya"
+        },
+        {
+          "value": "mg",
+          "label": "Madagascar"
+        },
+        {
+          "value": "mw",
+          "label": "Malawi"
+        },
+        {
+          "value": "mu",
+          "label": "Mauritius"
+        },
+        {
+          "value": "mz",
+          "label": "Mozambique"
+        },
+        {
+          "value": "rw",
+          "label": "Rwanda"
+        },
+        {
+          "value": "sc",
+          "label": "Seychelles"
+        },
+        {
+          "value": "so",
+          "label": "Somalia"
+        },
+        {
+          "value": "ss",
+          "label": "South Sudan"
+        },
+        {
+          "value": "tz",
+          "label": "Tanzania"
+        },
+        {
+          "value": "ug",
+          "label": "Uganda"
+        },
+        {
+          "value": "zm",
+          "label": "Zambia"
+        },
+        {
+          "value": "zw",
+          "label": "Zimbabwe"
+        }
+      ]
+    },
+    {
+      "value": "south",
+      "label": "Southern Africa",
+      "children": [
+        {
+          "value": "bw",
+          "label": "Botswana"
+        },
+        {
+          "value": "sz",
+          "label": "Eswatini"
+        },
+        {
+          "value": "ls",
+          "label": "Lesotho"
+        },
+        {
+          "value": "na",
+          "label": "Namibia"
+        },
+        {
+          "value": "za",
+          "label": "South Africa"
+        }
+      ]
+    }
+  ]
+}

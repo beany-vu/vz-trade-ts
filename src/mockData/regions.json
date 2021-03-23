@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "value": "0",
+      "label": "Rest of the world"
+    },
+    {
+      "value": "1",
+      "label": "All Africa",
+      "children": [
+        {
+          "value": "2",
+          "label": "Central Africa"
+        },
+        {
+          "value": "3",
+          "label": "Eastern Africa"
+        },
+        {
+          "value": "4",
+          "label": "Northern Africa"
+        },
+        {
+          "value": "5",
+          "label": "Southern Africa"
+        },
+        {
+          "value": "6",
+          "label": "Western Africa"
+        }
+      ]
+    }
+  ]
+}
