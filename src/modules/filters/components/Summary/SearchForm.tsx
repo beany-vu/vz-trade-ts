@@ -7,13 +7,9 @@ import { setSearchKeyword } from '../../reducer';
 const Input = styled.input`
   min-width: 70px;
   outline: 0;
-  border-radius: 50px;
-  border: 1px solid #fff;
+  border-radius: 5px;
+  border: 1px solid var(--color-border);
   padding: 2px 5px;
-  &:hover,
-  &:focus {
-    border: 1px solid var(--color-border);
-  }
 `;
 
 const SearchForm: FC = () => {

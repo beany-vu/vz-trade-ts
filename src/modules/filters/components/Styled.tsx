@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const CheckboxTreeStyled = styled.div`
+  ol ol {
+    padding-left: 15px;
+  }
   ol li {
     padding: 5px 0;
     border-bottom: 1px solid var(--color-border);
@@ -19,16 +22,16 @@ export const CheckboxTreeStyled = styled.div`
     &:before {
       content: '';
       position: absolute;
-      left: 37px;
-      top: 22px;
+      left: 11px;
+      top: 25px;
       width: 1px;
       background: var(--color-border);
-      height: calc(100% - 26px);
+      height: calc(100% - 30px);
+      z-index: -1;
     }
   }
 
   .rct-node-leaf {
-    margin-left: 12px;
     .rct-collapse {
       width: 0;
     }
@@ -37,7 +40,9 @@ export const CheckboxTreeStyled = styled.div`
   .rct-node-clickable {
     padding-left: 25px;
     transform: translate(-25px, -1px);
-    &:hover {
+    order: -1;
+    &:hover,
+    &:focus {
       background: unset;
     }
     .rct-node-icon {
@@ -51,6 +56,12 @@ export const CheckboxTreeStyled = styled.div`
 
   .rct-collapse.rct-collapse-btn {
     cursor: pointer;
-    transform: translate(10px, -2px) scale(0.8);
+    margin-left: auto;
+  }
+
+  label {
+    display: flex;
+    margin-top: 2px;
+    order: -2;
   }
 `;

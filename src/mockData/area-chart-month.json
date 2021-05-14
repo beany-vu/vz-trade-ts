@@ -1,0 +1,191 @@
+[
+  {
+    "date": "2018-01",
+    "Processed": 100,
+    "Raw": 0,
+    "Semi-processed": 0
+  },
+  {
+    "date": "2018-02",
+    "Processed": 28,
+    "Raw": 0,
+    "Semi-processed": 70
+  },
+  {
+    "date": "2018-03",
+    "Processed": 11,
+    "Raw": 0,
+    "Semi-processed": 88
+  },
+  {
+    "date": "2018-04",
+    "Processed": 7,
+    "Raw": 16,
+    "Semi-processed": 75
+  },
+  {
+    "date": "2018-05",
+    "Processed": 51,
+    "Semi-processed": 48
+  },
+  {
+    "date": "2018-06",
+    "Processed": 15,
+    "Semi-processed": 84
+  },
+  {
+    "date": "2018-07",
+    "Processed": 53,
+    "Raw": 5,
+    "Semi-processed": 41
+  },
+  {
+    "date": "2018-08",
+    "Processed": 80,
+    "Raw": 0,
+    "Semi-processed": 19
+  },
+  {
+    "date": "2018-09",
+    "Processed": 22,
+    "Raw": 0,
+    "Semi-processed": 77
+  },
+  {
+    "date": "2018-10",
+    "Processed": 66,
+    "Raw": 1,
+    "Semi-processed": 32
+  },
+  {
+    "date": "2018-11",
+    "Processed": 7,
+    "Raw": 0,
+    "Semi-processed": 92
+  },
+  {
+    "date": "2018-12",
+    "Processed": 2,
+    "Semi-processed": 97
+  },
+  {
+    "date": "2019-01",
+    "Processed": 80,
+    "Raw": 0,
+    "Semi-processed": 19
+  },
+  {
+    "date": "2019-02",
+    "Processed": 55,
+    "Semi-processed": 44
+  },
+  {
+    "date": "2019-03",
+    "Processed": 29,
+    "Raw": 0,
+    "Semi-processed": 70
+  },
+  {
+    "date": "2019-04",
+    "Processed": 38,
+    "Semi-processed": 61
+  },
+  {
+    "date": "2019-05",
+    "Processed": 44,
+    "Semi-processed": 55
+  },
+  {
+    "date": "2019-06",
+    "Processed": 34,
+    "Raw": 0,
+    "Semi-processed": 65
+  },
+  {
+    "date": "2019-07",
+    "Processed": 22,
+    "Semi-processed": 77
+  },
+  {
+    "date": "2019-08",
+    "Processed": 100,
+    "Raw": 0,
+    "Semi-processed": 0
+  },
+  {
+    "date": "2019-09",
+    "Processed": 12,
+    "Semi-processed": 87
+  },
+  {
+    "date": "2019-10",
+    "Processed": 13,
+    "Semi-processed": 86
+  },
+  {
+    "date": "2019-11",
+    "Processed": 26,
+    "Semi-processed": 73
+  },
+  {
+    "date": "2019-12",
+    "Processed": 23,
+    "Semi-processed": 76
+  },
+  {
+    "date": "2020-01",
+    "Processed": 10,
+    "Semi-processed": 89
+  },
+  {
+    "date": "2020-02",
+    "Processed": 23,
+    "Semi-processed": 76
+  },
+  {
+    "date": "2020-03",
+    "Processed": 49,
+    "Semi-processed": 50
+  },
+  {
+    "date": "2020-04",
+    "Processed": 15,
+    "Semi-processed": 84
+  },
+  {
+    "date": "2020-05",
+    "Processed": 19,
+    "Semi-processed": 80
+  },
+  {
+    "date": "2020-06",
+    "Processed": 48,
+    "Semi-processed": 51
+  },
+  {
+    "date": "2020-07",
+    "Processed": 4,
+    "Semi-processed": 95
+  },
+  {
+    "date": "2020-08",
+    "Processed": 3,
+    "Semi-processed": 96
+  },
+  {
+    "date": "2020-09",
+    "Processed": 12,
+    "Semi-processed": 87
+  },
+  {
+    "date": "2020-10",
+    "Processed": 14,
+    "Semi-processed": 85
+  },
+  {
+    "date": "2020-11",
+    "Processed": 0,
+    "Raw": 0,
+    "Semi-processed": 99
+  }
+]

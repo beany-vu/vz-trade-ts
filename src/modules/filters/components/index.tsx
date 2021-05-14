@@ -3,8 +3,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import PublicRoundedIcon from '@material-ui/icons/PublicRounded';
 import filtersReducer from '../reducer';
-import FilterContent from './filter-content';
-// import { createStore } from 'redux';
+import FilterContent from './FilterContent';
 
 interface INode {
   value: string;
@@ -20,6 +19,7 @@ const Filter: FC<{
   multipleSelection: boolean;
   onChange: (data: INode[]) => void;
   preSelected: INode[];
+  summaryText: ReactNode | string | undefined;
 }> = ({
   bgColor = '#ffffff',
   icon,

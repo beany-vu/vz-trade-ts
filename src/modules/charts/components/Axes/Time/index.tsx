@@ -12,16 +12,18 @@ const TickYear: FC<{
   formattedValue: string | undefined;
   x: number;
   y: number;
+  width?: number;
   children?: ReactNode;
-}> = ({ x, y, formattedValue = '', children }) => {
-  const text = formattedValue
-    .split(' ')
-    .map((d: string, i: number, arr) => (
-      <tspan style={{ fontWeight: i === arr.length - 1 ? 'bold' : 'normal' }}>
-        {' '}
-        {d}
-      </tspan>
-    ));
+}> = ({ x, y, formattedValue = '', children, width }) => {
+  const text = formattedValue.split(' ').map((d: string, i: number, arr) => (
+    <tspan
+      key={`tick-${i}`}
+      style={{ fontWeight: i === arr.length - 1 ? 'bold' : 'normal' }}
+    >
+      {width && width < 600 && <>{parseInt(d, 10) % 5 === 0 ? d : ''}</>}
+      {(!width || width >= 600) && <>{d}</>}
+    </tspan>
+  ));
 
   return (
     <>

@@ -1,0 +1,56 @@
+[
+  {
+    "date": "2001",
+    "Raw": 50,
+    "Semi-processed": 30,
+    "Processed": 20
+  },
+  {
+    "date": "2002",
+    "Raw": 30,
+    "Semi-processed": 30,
+    "Processed": 40
+  },
+  {
+    "date": "2003",
+    "Raw": 10,
+    "Semi-processed": 70,
+    "Processed": 20
+  },
+  {
+    "date": "2004",
+    "Raw": 50,
+    "Semi-processed": 20,
+    "Processed": 40
+  },
+  {
+    "date": "2005",
+    "Raw": 50,
+    "Semi-processed": 10,
+    "Processed": 40
+  },
+  {
+    "date": "2006",
+    "Raw": 5,
+    "Semi-processed": 5,
+    "Processed": 90
+  },
+  {
+    "date": "2007",
+    "Raw": 55,
+    "Semi-processed": 30,
+    "Processed": 15
+  },
+  {
+    "date": "2008",
+    "Raw": 75,
+    "Semi-processed": 10,
+    "Processed": 15
+  },
+  {
+    "date": "2009",
+    "Raw": 50,
+    "Semi-processed": 35,
+    "Processed": 15
+  }
+]

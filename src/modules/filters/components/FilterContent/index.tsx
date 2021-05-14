@@ -3,14 +3,17 @@ import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import styled from 'styled-components';
 import AppBar from '@material-ui/core/AppBar';
 import { useDispatch } from 'react-redux';
-import SelectionTree, { IData } from '../selection-tree';
-import Summary from '../summary';
+import SelectionTree, { IData } from '../SelectionTree';
+import Summary from '../Summary';
 import { resetSearchKeyword } from '../../reducer';
 import { Tab, Tabs } from '../../../ui/components/Styled';
 import Overlay from '../../../ui/components/Overlay';
 
-const TreeStyled = styled.div<{ isContentOpened: boolean }>`
-  width: 335px;
+const TreeStyled = styled.div<{
+  isContentOpened: boolean;
+  width: number;
+}>`
+  width: ${(props) => props.width}px;
   position: relative;
   margin: 10px 0;
 
@@ -25,8 +28,8 @@ const SelectionHeading = styled.div`
   display: flex;
   align-items: center;
   padding-left: 10px;
-  background: #fff;
   border-radius: var(--border-radius);
+  overflow: hidden;
 `;
 
 const SelectionContent = styled.div<{ isOpened: boolean }>`
@@ -97,6 +100,7 @@ const TabPanel: FC<{ value: string; index: string; children: ReactNode }> = ({
 
 const FilterContent: FC<{
   bgColor: string;
+  width?: number;
   icon: ReactNode | undefined;
   label: ReactNode | undefined;
   dataGroup: IDataGroup[];
@@ -105,8 +109,10 @@ const FilterContent: FC<{
   isOpenedByDefault?: boolean;
   multipleSelection: boolean;
   preSelected: IData[];
+  summaryText: ReactNode | string | undefined;
 }> = ({
-  bgColor,
+  bgColor = '#fff',
+  width = 335,
   icon,
   label,
   dataGroup,
@@ -115,6 +121,8 @@ const FilterContent: FC<{
   preSelected,
   isOpenedByDefault,
   onClose,
+  summaryText,
+  ...otherProps
 }) => {
   const dispatch = useDispatch();
   const [currentTab, seCurrentTab] = useState<string>('tab0');
@@ -157,13 +165,17 @@ const FilterContent: FC<{
   }, [selected]);
 
   useEffect(() => {
+    setSelected(preSelected);
+  }, [preSelected]);
+
+  useEffect(() => {
     if (isOpened === false && typeof onClose === 'function') {
       onClose();
     }
   }, [isOpened]);
 
   return (
-    <TreeStyled isContentOpened={isOpened}>
+    <TreeStyled isContentOpened={isOpened} width={width} {...otherProps}>
       <div className="wrapper">
         <SelectionHeading
           style={{ backgroundColor: bgColor }}
@@ -174,6 +186,7 @@ const FilterContent: FC<{
             label={label}
             isOpened={isOpened}
             selected={selected}
+            summaryText={summaryText}
             deselectAnItem={(key: IData[] | undefined) => handleSelect(key)}
           />
         </SelectionHeading>
@@ -182,8 +195,8 @@ const FilterContent: FC<{
             <Tabs
               value={currentTab}
               onChange={handleChange}
-              variant="fullWidth"
-              scrollButtons="auto"
+              variant="scrollable"
+              scrollButtons="on"
               TabIndicatorProps={{
                 style: {
                   display: 'none',

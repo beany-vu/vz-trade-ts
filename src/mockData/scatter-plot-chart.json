@@ -1,0 +1,123 @@
+[
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "10",
+    "x": 70,
+    "y": 20.5,
+    "d": 3860000000,
+    "label": "Beauty products & perfumes",
+    "color": "#1F77B4"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "22",
+    "x": 64.28571,
+    "y": 8.035714,
+    "d": 1320000000,
+    "label": "Unknown",
+    "color": "#17BECF"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "30",
+    "x": 90.90909,
+    "y": 37.585,
+    "d": 2840000000,
+    "label": "Ferrous metals",
+    "color": "#FF7F0E"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "48",
+    "x": 4.761905,
+    "y": 9.642858,
+    "d": 2240000000,
+    "label": "Machinery",
+    "color": "#D62728"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "62",
+    "x": 4,
+    "y": 12.4569,
+    "d": 3270000000,
+    "label": "Motor vehicles & parts",
+    "color": "#9467BD"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "68",
+    "x": 87.5,
+    "y": 13.33333,
+    "d": 2420000000,
+    "label": "Paper products",
+    "color": "#8C564B"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "70",
+    "x": 2.941176,
+    "y": 0.5,
+    "d": 1480000000,
+    "label": "Pharmaceutical components",
+    "color": "#E377C2"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "71",
+    "x": 78.04878,
+    "y": 9.939024,
+    "d": 2780000000,
+    "label": "Plastics & rubber",
+    "color": "#7F7F7F"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "92",
+    "x": 10,
+    "y": 25,
+    "d": 10200000000,
+    "label": "Tobacco & tobacco products",
+    "color": "#BCBD22"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "99",
+    "x": 5,
+    "y": 3.240741,
+    "d": 904000000,
+    "label": "Waste, n.e.s.",
+    "color": "#2CA02C"
+  },
+  {
+    "region_i": "800",
+    "region_j": "1022",
+    "year": "202009",
+    "sector": "101",
+    "x": 0,
+    "y": 10,
+    "d": 206000000,
+    "label": "Wood & vegetable material",
+    "color": "#0CF823"
+  }
+]

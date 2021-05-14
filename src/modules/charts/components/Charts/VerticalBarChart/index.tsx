@@ -6,145 +6,57 @@ import { scaleBand, scaleLinear, scaleOrdinal } from '@visx/scale';
 import { GridRows } from '@visx/grid';
 import { defaultStyles, useTooltip, useTooltipInPortal } from '@visx/tooltip';
 import { localPoint } from '@visx/event';
-import { Label, TickPlain, TickYear } from '../Axis';
-import colors from '../../constants/colors';
-import Tooltip, { ITooltipContent } from '../TooltipContent';
-import { TIMELINE } from '../../../../constants';
-
-export const background = '#612efb';
+import { Label, TickPlain, TickYear } from '../../Axes';
+import colorsDefault from '../../../constants/colors';
+import Tooltip, { ITooltipTrendProps } from '../../Tooltips/TooltipTrend';
+import Stack from './Stack';
+import { defaultConfig } from '../../../helpers';
 
 let tooltipTimeout: number;
-
-const Stack: ({
-  containerTop,
-  containerLeft,
-  containerHeight,
-  containerWidth,
-  dataKey,
-  date,
-  value,
-  series,
-  keys,
-}: {
-  containerTop: any;
-  containerLeft: any;
-  containerHeight: any;
-  containerWidth: any;
-  dataKey: any;
-  date: any;
-  value: any;
-  keys: string[];
-  [x: string]: any;
-  series;
-}) => null | JSX.Element = (props) => {
-  const {
-    containerTop,
-    containerLeft,
-    containerHeight,
-    containerWidth,
-    dataKey,
-    date,
-    value,
-    series,
-    keys,
-    ...otherProps
-  } = props;
-  let top = containerTop;
-
-  const stackData = series
-    .find((d) => d.key === dataKey)
-    ?.data?.find((d) => +d.date === +date);
-
-  if (!stackData) return null;
-
-  return (
-    <>
-      {Object.keys(stackData)
-        .filter((d) => d !== 'date')
-        .map((k, i) => {
-          const h = (stackData[k] * containerHeight) / value;
-          top += h;
-  
-          console.log(123, stackData);
-          
-          return (
-            <g key={`g-${i}-${dataKey}-fk`}>
-              {Object.keys(stackData).length > 2 && (
-                <rect
-                  key={`stack-${i}-${dataKey}-fk`}
-                  x={containerLeft}
-                  y={
-                    Object.keys(stackData).length - 2 === i
-                      ? top - h
-                      : top - h + 11
-                  }
-                  height={h - 8}
-                  width={containerWidth}
-                  rx={0}
-                  ry={0}
-                  fill={colors[i]}
-                />
-              )}
-              <rect
-                key={`stack-${i}-${dataKey}`}
-                x={containerLeft}
-                y={top - h}
-                height={h}
-                width={containerWidth}
-                rx={5}
-                ry={5}
-                fill={colors[i]}
-                {...otherProps}
-              />
-              {Object.keys(stackData).length - 2 === i && (
-                <rect
-                  y={top - h - 2}
-                  x={containerLeft}
-                  height={2}
-                  width={containerWidth}
-                  fill="#fff"
-                  style={{ pointerEvents: 'none' }}
-                />
-              )}
-            </g>
-          );
-        })}
-    </>
-  );
-};
 
 const VerticalBarChart: FC<{
   series: any[];
   seriesTotal: any[];
-  unit: string;
   tickFormat: { value: string; date: string };
-  timeLine: string;
   title: string | React.ReactNode;
   width: number;
   height: number;
+  colors: any | null;
   padding: {
-    top: number;
-    right: number;
-    bottom: number;
-    left: number;
-  };
+    top?: number;
+    right?: number;
+    bottom?: number;
+    left?: number;
+  } | null;
+  domainAxisX: number[] | null;
+  domainAxisY: number[] | null;
+  showAxisX: boolean;
+  showAxisY: boolean;
 }> = ({
   series = [],
   seriesTotal = [],
-  unit,
-  tickFormat = { value: '', date: '' },
-  timeLine = TIMELINE.YEARLY,
+  tickFormat = defaultConfig.tickFormat,
   title = '',
-  height = 500,
-  width = 900,
-  padding = {
-    top: 50,
-    right: 30,
-    bottom: 50,
-    left: 40,
-  },
+  height = defaultConfig.height,
+  width = defaultConfig.width,
+  colors = null,
+  padding = null,
+  domainAxisX = null,
+  domainAxisY = null,
+  showAxisX = true,
+  showAxisY = true,
 }) => {
-  const filteredSeries = series.filter(d => d.data.length > 0);
+  const refinedPadding = padding
+    ? {
+        ...defaultConfig.padding,
+        ...padding,
+      }
+    : {
+        ...defaultConfig.padding,
+      };
+
+  const filteredSeries = series.filter((d) => d.data.length > 0);
+
   const keyAbbr = filteredSeries.reduce(
     (result, d) => ({
       ...result,
@@ -158,16 +70,16 @@ const VerticalBarChart: FC<{
 
   // scales
   const dateScale = scaleBand<string>({
-    domain: seriesTotal.map(getDate),
+    domain: domainAxisX || seriesTotal.map(getDate),
     padding: 0.1,
   });
 
-  const cityScale = scaleBand<string>({
+  const directionScale = scaleBand<string>({
     domain: keys,
     padding: 0.1,
   });
-  const tempScale = scaleLinear<number>({
-    domain: [
+  const objectScale = scaleLinear<number>({
+    domain: domainAxisY || [
       0,
       Math.max(...seriesTotal.map((d) => Math.max(d?.export, d?.import))),
     ],
@@ -175,7 +87,7 @@ const VerticalBarChart: FC<{
   });
   const colorScale = scaleOrdinal<string, string>({
     domain: keys,
-    range: colors,
+    range: colorsDefault,
   });
 
   const {
@@ -185,13 +97,13 @@ const VerticalBarChart: FC<{
     tooltipData,
     hideTooltip,
     showTooltip,
-  } = useTooltip<ITooltipContent>();
+  } = useTooltip<ITooltipTrendProps>();
   const { containerRef, TooltipInPortal } = useTooltipInPortal({
     scroll: true,
   });
-  dateScale.rangeRound([padding.left, width]);
-  tempScale.range([height - 100, 0]);
-  cityScale.rangeRound([0, dateScale.bandwidth()]);
+  dateScale.rangeRound([refinedPadding.left, width - refinedPadding.right]);
+  objectScale.range([height - 100, 0]);
+  directionScale.rangeRound([0, dateScale.bandwidth()]);
 
   return (
     <div>
@@ -200,41 +112,47 @@ const VerticalBarChart: FC<{
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
-        style={{ fontSize: width > 600 ? '1em' : '0.75em' }}
+        style={{
+          fontSize: width > 600 ? '1em' : '0.75em',
+          overflow: 'visible',
+        }}
       >
-        <rect x={0} y={0} width={width} height={height} fill="#fff" rx={14} />
+        <rect x={0} y={0} width={width} height={height} fill="#fff" />
         <Label x={5} y={25}>
           {title}
         </Label>
-        <AxisLeft
-          top={50}
-          left={padding.left - 18}
-          scale={tempScale}
-          numTicks={5}
-          strokeWidth={0}
-          hideTicks
-          tickFormat={(v) => `${v}`}
-          tickComponent={TickPlain}
-        />
+        {showAxisY && (
+          <AxisLeft
+            top={50}
+            left={refinedPadding.left - 18}
+            scale={objectScale}
+            numTicks={5}
+            strokeWidth={0}
+            hideTicks
+            tickFormat={(v) => `${v}`}
+            tickComponent={TickPlain}
+          />
+        )}
 
         <GridRows
-          scale={tempScale}
-          width={width - padding.left - padding.right}
+          scale={objectScale}
+          width={width - refinedPadding.left - refinedPadding.right}
           height={10}
+          numTicks={5}
           strokeDasharray="2,2"
           top={50}
-          left={padding.left}
+          left={refinedPadding.left}
           stroke="#d3d3d3"
         />
-        <Group top={padding.top}>
+        <Group top={refinedPadding.top}>
           <BarGroup
             data={seriesTotal}
             keys={keys}
             height={height - 100}
             x0={getDate}
             x0Scale={dateScale}
-            x1Scale={cityScale}
-            yScale={tempScale}
+            x1Scale={directionScale}
+            yScale={objectScale}
             color={colorScale}
           >
             {(barGroups) =>
@@ -259,6 +177,7 @@ const VerticalBarChart: FC<{
                         containerHeight={bar.height}
                         containerWidth={bar.width}
                         date={seriesTotal[barGroup.index]?.date}
+                        colors={colors}
                         dataKey={bar.key}
                         value={bar.value}
                         onMouseLeave={() => {
@@ -283,7 +202,7 @@ const VerticalBarChart: FC<{
                                   date: d?.date,
                                   value: parseFloat(d[bar.key]).toFixed(4),
                                 })),
-                                unit: '%',
+                                tickFormat,
                               },
                               tooltipTop: eventSvgCoords?.y,
                               tooltipLeft: left,
@@ -293,33 +212,42 @@ const VerticalBarChart: FC<{
                         series={filteredSeries}
                       />
                       {barGroup.index === 0 && (
-                        <text
-                          x={bar.width * bar.index + bar.width / 2 + bar.width/14}
-                          y={bar.y + bar.height + 15}
+                        <foreignObject
+                          x={bar.x}
+                          y={bar.y + bar.height + 5}
+                          width={bar.width}
+                          height={20}
                         >
-                          {keyAbbr[bar.key]}
-                        </text>
+                          <div style={{ textAlign: 'center' }}>
+                            {keyAbbr[bar.key]}
+                          </div>
+                        </foreignObject>
                       )}
                     </g>
                   ))}
                 </Group>
-              ))}
+              ))
+            }
           </BarGroup>
         </Group>
-        <AxisBottom
-          top={height - padding.bottom + 10}
-          left={0}
-          tickComponent={TickYear}
-          scale={dateScale}
-          stroke="transparent"
-          tickStroke="transparent"
-          hideAxisLine
-          tickLabelProps={() => ({
-            fill: '#000',
-            fontSize: 11,
-            textAnchor: 'middle',
-          })}
-        />
+        {showAxisX && (
+          <AxisBottom
+            top={height - refinedPadding.bottom + 15}
+            left={0}
+            tickComponent={TickYear}
+            scale={dateScale}
+            stroke="transparent"
+            tickStroke="transparent"
+            numTicks={20}
+            hideAxisLine
+            tickLabelProps={() => ({
+              fill: '#000',
+              fontSize: 11,
+              textAnchor: 'middle',
+              width,
+            })}
+          />
+        )}
       </svg>
       {tooltipOpen && tooltipData && (
         <TooltipInPortal
@@ -332,8 +260,7 @@ const VerticalBarChart: FC<{
             date={tooltipData.date}
             value={tooltipData.value}
             dataSeries={tooltipData.dataSeries}
-            unit="mn $"
-            valueFormat={tickFormat.value}
+            tickFormat={tickFormat}
           />
         </TooltipInPortal>
       )}

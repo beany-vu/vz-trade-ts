@@ -1,0 +1,66 @@
+[
+  {
+    "value": "1010",
+    "label": "AfCFTA"
+  },
+  {
+    "value": "1011",
+    "label": " Non-AfCFTA"
+  },
+  {
+    "value": "1020",
+    "label": "CEMAC"
+  },
+  {
+    "value": "1021",
+    "label": "CEN-SAD"
+  },
+  {
+    "value": "1022",
+    "label": "COMESA"
+  },
+  {
+    "value": "1023",
+    "label": "EAC"
+  },
+  {
+    "value": "1024",
+    "label": "ECCAS"
+  },
+  {
+    "value": "1025",
+    "label": "ECOWAS"
+  },
+  {
+    "value": "1026",
+    "label": "IGAD"
+  },
+  {
+    "value": "1027",
+    "label": "SADC"
+  },
+  {
+    "value": "1028",
+    "label": "SACU"
+  },
+  {
+    "value": "1029",
+    "label": "UMA"
+  },
+  {
+    "value": "1030",
+    "label": "WAEMU"
+  },
+  {
+    "value": "1051",
+    "label": "LDC"
+  },
+  {
+    "value": "1052",
+    "label": "LLDC"
+  },
+  {
+    "value": "1053",
+    "label": "SIDS"
+  }
+]

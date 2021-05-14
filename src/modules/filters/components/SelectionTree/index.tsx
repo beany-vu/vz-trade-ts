@@ -3,10 +3,7 @@ import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import CheckboxTree from 'react-checkbox-tree';
 import { useSelector, shallowEqual } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faPlusSquare,
-  faMinusSquare,
-} from '@fortawesome/free-regular-svg-icons';
+import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { selectSearchKeyword } from '../../selectors/keyword';
 import {
   CheckboxCheckedIcon,
@@ -26,6 +23,7 @@ export interface IData {
   value: string;
   label: string;
   children?: IData[];
+  parent?: IData;
 }
 
 const SelectionTree: FC<{
@@ -90,17 +88,17 @@ const SelectionTree: FC<{
     setFilteredData(filterByKeyword(dataSource, searchKeyword));
   }, []);
 
-  // @ts-ignore
   return (
     <CheckboxTreeStyled>
       <CheckboxTree
         noCascade
+        nameAsArray
         nodes={filteredData}
         checked={selected.map((d) => d.value)}
         expanded={state.expanded}
         onClick={(node) => {
-          const { label, value } = node as any;
-          handleSelect([{ label, value }]);
+          const { label, value, parent } = (node as unknown) as IData;
+          handleSelect([{ label, value, parent }]);
         }}
         onExpand={(expanded) => handleExpand(expanded)}
         icons={{
@@ -115,13 +113,13 @@ const SelectionTree: FC<{
             <RadioUncheckedIcon />
           ),
           halfCheck: <CheckboxCheckedIcon />,
-          expandAll: <FontAwesomeIcon icon={faPlusSquare} />,
-          collapseAll: <FontAwesomeIcon icon={faMinusSquare} />,
-          parentClose: <FontAwesomeIcon icon={faPlusSquare} />,
+          expandAll: <FontAwesomeIcon icon={faChevronDown} />,
+          collapseAll: <FontAwesomeIcon icon={faChevronUp} />,
+          parentClose: <FontAwesomeIcon icon={faChevronUp} />,
           parentOpen: null,
           leaf: null,
-          expandClose: <ExpandClose />,
-          expandOpen: <ExpandOpen />,
+          expandClose: <FontAwesomeIcon icon={faChevronUp} />,
+          expandOpen: <FontAwesomeIcon icon={faChevronDown} />,
         }}
       />
     </CheckboxTreeStyled>

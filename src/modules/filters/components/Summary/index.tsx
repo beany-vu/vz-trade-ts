@@ -4,7 +4,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import SearchIcon from '@material-ui/icons/Search';
 import SearchForm from './SearchForm';
 import { Chip } from '../../../ui/components/Styled';
-import { IData } from '../selection-tree';
+import { IData } from '../SelectionTree';
 
 const SummaryStyled = styled.div`
   position: relative;
@@ -14,6 +14,9 @@ const SummaryStyled = styled.div`
   height: 55px;
   width: 100%;
   justify-content: space-between;
+  &.opened {
+    //height: 100px;
+  }
 
   .summary {
     padding-left: 10px;
@@ -25,12 +28,15 @@ const SummaryStyled = styled.div`
     color: #918b86;
     line-height: 16px;
   }
+`;
 
-  .list-wrapper {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding-left: 10px;
+const ListWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 10px;
+  > span {
+    text-align: left;
   }
 `;
 
@@ -53,11 +59,17 @@ const SearchIconStyled = styled.div`
 `;
 
 const SelectedList = styled.div`
-  max-height: 55px;
-  overflow-y: scroll;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  //max-height: 55px;
   width: 100%;
   cursor: pointer;
-
+  overflow: hidden;
+  &.opened {
+    overflow-y: scroll;
+    max-height: unset;
+  }
   ::-webkit-scrollbar {
     width: 5px;
   }
@@ -80,38 +92,63 @@ const SelectedList = styled.div`
 const Summary: FC<{
   label: ReactNode | undefined;
   selected: IData[];
+  summaryText: ReactNode | string | undefined;
   isOpened: boolean;
   deselectAnItem: (strings: IData[] | undefined) => void;
-}> = ({ selected, label, isOpened, deselectAnItem }) => {
+}> = ({ selected, label, summaryText, isOpened, deselectAnItem }) => {
   const onDelete = (event: React.SyntheticEvent, key: string[]) => {
     event.preventDefault();
     deselectAnItem(selected.filter((d) => key.includes(d.value)));
   };
-
   return (
-    <SummaryStyled>
-      <div className="list-wrapper">
+    <SummaryStyled className={isOpened ? 'opened' : ''}>
+      <ListWrapper
+        style={{
+          flexDirection: isOpened ? 'row' : 'column',
+        }}
+      >
         <span>
           {label && <div className="placeholder">{label}</div>}
-          <SearchIconStyled>
-            <SearchIcon />
-          </SearchIconStyled>
+          {isOpened && (
+            <SearchIconStyled>
+              <SearchIcon />
+            </SearchIconStyled>
+          )}
         </span>
         {/* @todo think about scroll to bottom when selection changes to make sure that user will always see the input */}
-        <SelectedList>
-          {selected.map((d: IData) => (
-            <Chip
-              size="small"
-              key={d.value}
-              label={d?.label}
-              clickable
-              color="primary"
-              onDelete={(event) => onDelete(event, [d?.value])}
-            />
-          ))}
-          {isOpened && <SearchForm />}
+        <SelectedList className={isOpened ? 'opened' : ''}>
+          {!isOpened && summaryText && selected.length > 1 && (
+            <>{summaryText}</>
+          )}
+          {!isOpened &&
+            (!summaryText || selected.length === 1) &&
+            selected.map((d: IData) => (
+              <Chip
+                size="small"
+                key={d.value}
+                label={d?.label}
+                clickable
+                color="primary"
+                onDelete={(event) => onDelete(event, [d?.value])}
+              />
+            ))}
+          {isOpened && (
+            <>
+              <SearchForm />
+              {selected.map((d: IData) => (
+                <Chip
+                  size="small"
+                  key={d.value}
+                  label={d?.label}
+                  clickable
+                  color="primary"
+                  onDelete={(event) => onDelete(event, [d?.value])}
+                />
+              ))}
+            </>
+          )}
         </SelectedList>
-      </div>
+      </ListWrapper>
       <DropdownIconStyled>
         <KeyboardArrowDownIcon />
       </DropdownIconStyled>

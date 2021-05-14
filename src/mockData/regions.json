@@ -1,34 +1,39 @@
-{
-  "data": [
-    {
-      "value": "0",
-      "label": "Rest of the world"
-    },
-    {
-      "value": "1",
-      "label": "All Africa",
-      "children": [
-        {
-          "value": "2",
-          "label": "Central Africa"
-        },
-        {
-          "value": "3",
-          "label": "Eastern Africa"
-        },
-        {
-          "value": "4",
-          "label": "Northern Africa"
-        },
-        {
-          "value": "5",
-          "label": "Southern Africa"
-        },
-        {
-          "value": "6",
-          "label": "Western Africa"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "value": "77",
+    "label": "All",
+    "children": [
+      {
+        "value": "1002",
+        "label": "Rest of the world",
+        "path": ["77", "1002"]
+      },
+      {
+        "value": "1001",
+        "label": "All Africa",
+        "children": [
+          {
+            "value": "1040",
+            "label": "Central Africa"
+          },
+          {
+            "value": "1041",
+            "label": "Eastern Africa"
+          },
+          {
+            "value": "1042",
+            "label": "Northern Africa"
+          },
+          {
+            "value": "1043",
+            "label": "Southern Africa"
+          },
+          {
+            "value": "1044",
+            "label": "Western Africa"
+          }
+        ]
+      }
+    ]
+  }
+]
